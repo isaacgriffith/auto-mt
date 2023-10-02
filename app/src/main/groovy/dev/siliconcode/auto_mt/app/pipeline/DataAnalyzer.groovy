@@ -24,5 +24,7 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class DataAnalyzer extends Task {
+import tech.tablesaw.columns.AbstractColumn
+
+abstract class DataAnalyzer extends Task<InputFile> {
 }

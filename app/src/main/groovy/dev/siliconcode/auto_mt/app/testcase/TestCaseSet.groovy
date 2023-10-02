@@ -26,7 +26,13 @@ package dev.siliconcode.auto_mt.app.testcase
 
 import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput;
 
+/**
+ * Set of test cases
+ */
 class TestCaseSet implements PipelineOutput {
 
-    final Set<TestCase> cases = [].toSet() as Set<TestCase>
+    /**
+     * Set of test cases
+     */
+    def cases = [].toSet() as Set<TestCase>
 }

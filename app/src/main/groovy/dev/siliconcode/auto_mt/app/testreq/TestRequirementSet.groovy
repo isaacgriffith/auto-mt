@@ -22,9 +22,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package dev.siliconcode.auto_mt.app.testreq;
+package dev.siliconcode.auto_mt.app.testreq
 
-class TestRequirementSet {
+import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput;
 
-    final Set<TestRequirement> requirements = [].toSet() as Set<TestRequirement>
+/**
+ * Set of Test Requirements
+ */
+class TestRequirementSet implements PipelineOutput {
+
+    /**
+     * Set of Test Requirements
+     */
+    def requirements = [].toSet() as Set<TestRequirement>
 }

@@ -26,12 +26,22 @@ package dev.siliconcode.auto_mt.app.testreq.graph
 
 import dev.siliconcode.auto_mt.app.pipeline.GraphAnalyzer
 import dev.siliconcode.auto_mt.app.pipeline.MetamorphicRelationGenerator
+import dev.siliconcode.auto_mt.app.testreq.graph.coverage.CFG
 
+/**
+ * GraphMRPredictor
+ *
+ * Generates metamorphic relations based on the given control flow graphs.
+ * The MRs are generated based on the given MR generation strategy.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class GraphMRPredictor extends GraphAnalyzer implements MetamorphicRelationGenerator {
 
     /** {@inheritDoc} */
     @Override
-    def execute(input) {
+    def execute(CFG... cfgs) {
         return null
     }
 }

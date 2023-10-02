@@ -25,14 +25,15 @@
 package dev.siliconcode.auto_mt.app.problem_type;
 
 import dev.siliconcode.auto_mt.app.pipeline.MetamorphicRelationGenerator;
-import dev.siliconcode.auto_mt.app.pipeline.ProblemTypeProcessor;
+import dev.siliconcode.auto_mt.app.pipeline.ProblemTypeProcessor
+import dev.siliconcode.auto_mt.app.pipeline.StringOutput;
 import dev.siliconcode.auto_mt.app.problem_type.ProblemTypeIdentifier;
 
 class GenericMRSelector extends ProblemTypeProcessor implements MetamorphicRelationGenerator {
 
     /** {@inheritDoc} */
     @Override
-    def execute(input) {
+    def execute(StringOutput... input) {
         return null;
     }
 }

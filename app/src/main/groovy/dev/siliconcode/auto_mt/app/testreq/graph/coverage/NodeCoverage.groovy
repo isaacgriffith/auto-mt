@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Coverage strategy which generates test requirements based on the nodes in the
+ * control flow graph.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class NodeCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

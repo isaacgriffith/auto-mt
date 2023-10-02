@@ -24,5 +24,8 @@
  */
 package dev.siliconcode.auto_mt.app.testcase
 
+/**
+ * Interface for all test case generators
+ */
 abstract interface TestCaseGenerator {
 }

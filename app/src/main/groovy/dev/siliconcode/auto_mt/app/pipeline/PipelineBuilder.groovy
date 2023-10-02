@@ -29,16 +29,24 @@ import dev.siliconcode.auto_mt.app.testcase.TestConstructor
 import dev.siliconcode.auto_mt.app.testreq.isp.InputSpacePartitioner
 import groovy.json.JsonSlurper
 
+/**
+ * Pipeline builder
+ */
 @Singleton
 class PipelineBuilder {
 
+    /**
+     * Builds the default generation pipeline
+     *
+     * @return The default generation pipeline
+     */
     def buildGenerationPipeline() {
         println('Constructing generation pipeline')
 
-        var pipeline = new Pipeline()
-        var isp = new InputSpacePartitioner()
-        var mrg = new DataMutationOperatorGenerator()
-        var tc = new TestConstructor()
+        def pipeline = new Pipeline()
+        def isp = new InputSpacePartitioner()
+        def mrg = new DataMutationOperatorGenerator()
+        def tc = new TestConstructor()
 
         isp.next = mrg
         mrg.next = tc

@@ -25,12 +25,13 @@
 package dev.siliconcode.auto_mt.app.problem_type
 
 import dev.siliconcode.auto_mt.app.pipeline.CodeAnalyzer
+import dev.siliconcode.auto_mt.app.pipeline.CodeFile
 
 class ProblemTypeIdentifier extends CodeAnalyzer {
 
     /** {@inheritDoc} */
     @Override
-    def execute(Object input) {
+    def execute(CodeFile... codeInput) {
         return null
     }
 }

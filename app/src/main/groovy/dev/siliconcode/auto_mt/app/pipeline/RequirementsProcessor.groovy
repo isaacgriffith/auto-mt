@@ -24,7 +24,7 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class RequirementsProcessor extends Task {
+abstract class RequirementsProcessor extends Task<MarkdownInput> {
 
     /**
     * Analyzes the text and returns a list of features
@@ -38,7 +38,7 @@ abstract class RequirementsProcessor extends Task {
     * {@inheritDoc}
     */
     @Override
-    def execute(inputFile) {
+    def execute(MarkdownInput... inputFile) {
         var text = this.loadMarkdownFile(inputFile)
         var features = this.analyze(text)
         this.setOutput(features)

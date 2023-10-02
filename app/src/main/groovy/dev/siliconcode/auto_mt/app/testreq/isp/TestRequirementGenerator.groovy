@@ -24,10 +24,16 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp;
 
+/**
+ * Interface for a Test Requirement Generator
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 interface TestRequirementGenerator {
 
     /**
-     * Generats a list of Test Requirements from the provided list of Characteristics
+     * Generates a list of Test Requirements from the provided list of Characteristics
      *
      * @param characteristics
      * @return Set of test requirements

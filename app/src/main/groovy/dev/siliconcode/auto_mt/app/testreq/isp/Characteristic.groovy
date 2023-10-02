@@ -24,11 +24,26 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp
 
+/**
+ * A characteristic is a set of blocks which are associated with a single input parameter of the metamorphic relation
+ * under test.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class Characteristic {
 
-    var name
-    List<Block> blocks
+    /** The name of the characteristic */
+    def name
+    /** The set of blocks associated with this characteristic */
+    def blocks
 
+    /**
+     * Constructs a new Characteristic with the given name and set of blocks
+     *
+     * @param name  Name of this characteristic
+     * @param blocks    Set of blocks associated with this characteristic
+     */
     Characteristic(name = "", blocks = []) {
         this.name = name
         this.blocks = blocks

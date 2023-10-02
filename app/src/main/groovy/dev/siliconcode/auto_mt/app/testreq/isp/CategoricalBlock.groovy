@@ -24,13 +24,26 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp
 
+import groovy.transform.ToString
+
 /**
  * A block partitioning categorical data
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
+@ToString(includeNames = false, includePackage = false)
 class CategoricalBlock extends Block {
 
-    final var value;
+    /** Value of this block */
+    final def value;
 
+    /**
+     * Constructs a new CategoricalBlock with the given name and value
+     *
+     * @param name  Name of this block
+     * @param value Value of this block
+     */
     CategoricalBlock(name, value) {
         super(name)
         this.value = value

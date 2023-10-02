@@ -26,7 +26,13 @@ package dev.siliconcode.auto_mt.app.metrics
 
 import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput
 
+/**
+ * Set of findings
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class FindingSet implements PipelineOutput {
 
-    final Set<Finding> findings = [].toSet() as Set<Finding>
+    def findings = [].toSet() as Set<Finding>
 }

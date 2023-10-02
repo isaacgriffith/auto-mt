@@ -24,6 +24,12 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Coverage strategy which generates test requirements for all definitions in the CFG.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class AllDefsCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

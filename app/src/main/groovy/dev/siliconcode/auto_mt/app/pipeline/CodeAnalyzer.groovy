@@ -24,5 +24,11 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class CodeAnalyzer extends Task {
+/**
+ * Abstract base class for all code analyzers
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
+abstract class CodeAnalyzer extends Task<CodeFile> {
 }

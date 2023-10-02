@@ -25,13 +25,20 @@
 package dev.siliconcode.auto_mt.app.metrics
 
 import dev.siliconcode.auto_mt.app.pipeline.CodeAnalyzer
+import dev.siliconcode.auto_mt.app.pipeline.CodeFile
 import dev.siliconcode.auto_mt.app.pipeline.MetamorphicRelationGenerator
 
+/**
+ * Analyzer which computes various metrics for a given code base
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class MetricsAnalyzer extends CodeAnalyzer implements MetamorphicRelationGenerator {
 
     /** {@inheritDoc} */
     @Override
-    def execute(Object input) {
+    def execute(CodeFile... input) {
         return null
     }
 }

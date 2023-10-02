@@ -24,18 +24,39 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
+import org.jgrapht.graph.SimpleDirectedGraph
+import org.jgrapht.traverse.TopologicalOrderIterator
+
+/**
+ * Pipeline for processing input data
+ */
 class Pipeline {
 
+    /** Graph representation of the pipeline */
+    SimpleDirectedGraph<Task, Integer> processingGraph
+    /** First task in the pipeline */
     Task start
+    /** Last task in the pipeline */
+    Map<Task, PipelineOutput> outputs;
 
+    /**
+     * Executes the pipeline on the given input
+     *
+     * @param initialInput Input to the pipeline
+     */
     def execute(initialInput) {
-        var input = initialInput
-        var current = start
+        def inputs = [initialInput]
 
-        while (current) {
-            var result = current.execute(input)
-            current = current.next
-            input = result
+        Iterator<Integer> iterator = new TopologicalOrderIterator<>(processingGraph);
+        while (iterator().hasNext()) {
+            Task task = iterator().next();
+            processingGraph.incomingEdgesOf(task).forEach { edge ->
+                Task source = processingGraph.getEdgeSource(edge);
+                inputs += outputs.get(source);
+            }
+            PipelineOutput output = task.execute(inputs);
+            outputs.put(task, output);
+            inputs = []
         }
     }
 }

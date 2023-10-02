@@ -26,15 +26,22 @@ package dev.siliconcode.auto_mt.app.testreq.graph
 
 import dev.siliconcode.auto_mt.app.pipeline.GraphAnalyzer
 import dev.siliconcode.auto_mt.app.testreq.TestRequirementGenerator
+import dev.siliconcode.auto_mt.app.testreq.graph.coverage.CFG
 import dev.siliconcode.auto_mt.app.testreq.graph.coverage.GraphCoverageGenerationStrategy
 
+/**
+ * GraphCoverageGenerator
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class GraphCoverageGenerator extends GraphAnalyzer implements TestRequirementGenerator {
 
     GraphCoverageGenerationStrategy strategy
 
     /** {@inheritDoc} */
     @Override
-    def execute(Object input) {
+    def execute(CFG... cfgs) {
         return null
     }
 }

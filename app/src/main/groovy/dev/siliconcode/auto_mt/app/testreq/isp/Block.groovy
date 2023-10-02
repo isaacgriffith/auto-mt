@@ -24,10 +24,28 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp
 
+/**
+ * A block is a single dimension of a characteristic.  It is a range of values
+ * that are considered equivalent for the purposes of testing.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 abstract class Block {
 
-    var name
-    var selected = false
+    /** Name of this block */
+    def name
+    /** Indication of whether the block has been selected or not */
+    def selected = false
+
+    /**
+     * Constructs a new Block with the given name
+     *
+     * @param name Name of this block
+     */
+    Block(name) {
+        this.name = name
+    }
 
     /**
      * Generates a random value from within the domain of this Block

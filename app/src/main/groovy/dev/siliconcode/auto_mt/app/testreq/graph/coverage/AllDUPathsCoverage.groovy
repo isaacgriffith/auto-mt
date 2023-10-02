@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Coverage strategy which generates test requirements for all def-use paths in the
+ * given control flow graph.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class AllDUPathsCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

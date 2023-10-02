@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * A coverage strategy which attempts to generate a test suite which covers all
+ * possible paths in the CFG.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class CompleteRoundTripCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

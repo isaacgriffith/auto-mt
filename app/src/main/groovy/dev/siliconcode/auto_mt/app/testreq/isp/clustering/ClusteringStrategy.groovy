@@ -24,12 +24,15 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp.clustering
 
-import com.zavtech.morpheus.frame.DataFrameColumn
+import tech.tablesaw.columns.AbstractColumn
 
 /**
  * Abstract base class to define a clustering strategy for feature vectors
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
-abstract class ClusteringStrategy {
+abstract class ClusteringStrategy<T extends AbstractColumn> {
 
     /**
      * Partitions a single vector of data
@@ -38,5 +41,5 @@ abstract class ClusteringStrategy {
      * @param feature The vector of data to be partitioned
      * @return A list of Blocks from with Test Requirements may be derived
      */
-    abstract def cluster(String name, DataFrameColumn feature)
+    abstract def cluster(String name, T feature)
 }

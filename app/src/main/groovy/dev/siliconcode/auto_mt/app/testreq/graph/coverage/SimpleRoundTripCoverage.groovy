@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * A simple round trip coverage strategy for a graph.  This strategy will generate a test requirement for each edge
+ * in the graph.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class SimpleRoundTripCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

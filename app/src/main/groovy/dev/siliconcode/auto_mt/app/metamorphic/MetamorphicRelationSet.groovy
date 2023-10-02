@@ -26,7 +26,16 @@ package dev.siliconcode.auto_mt.app.metamorphic
 
 import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput
 
+/**
+ * Representation of a set of metamorphic relations
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class MetamorphicRelationSet implements PipelineOutput {
 
-    final Set<AbstractMetamorphicRelation> relations = [].toSet() as Set<AbstractMetamorphicRelation>
+    /**
+     * Set of metamorphic relations
+     */
+    def relations = [].toSet() as Set<AbstractMetamorphicRelation>
 }

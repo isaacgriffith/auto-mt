@@ -24,6 +24,12 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * GraphCoverageGenerationStrategy defines the interface for all graph based test
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 abstract class GraphCoverageGenerationStrategy {
 
     /**

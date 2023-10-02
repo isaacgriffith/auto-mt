@@ -24,8 +24,19 @@
  */
 package dev.siliconcode.auto_mt.app.metamorphic
 
+import groovy.transform.MapConstructor
+
+/**
+ * Representation of a Relation which either transforms input data or compares output results
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
+@MapConstructor
 class Relation {
 
+    /** Name of the relation */
     String name
+    /** Input data */
     String operator
 }

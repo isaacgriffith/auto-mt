@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Edge Pair Coverage strategy for generating test requirements for a given
+ * control flow graph.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class EdgePairCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

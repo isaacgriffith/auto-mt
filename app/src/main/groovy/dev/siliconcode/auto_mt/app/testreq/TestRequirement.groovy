@@ -24,7 +24,9 @@
  */
 package dev.siliconcode.auto_mt.app.testreq
 
+import dev.siliconcode.auto_mt.app.testreq.isp.Block
+
 class TestRequirement {
 
-    var blocks = []
+    List<Block> blocks = []
 }

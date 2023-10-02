@@ -24,5 +24,7 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class TestCaseProcessor extends Task {
+import dev.siliconcode.auto_mt.app.testcase.TestCaseSet
+
+abstract class TestCaseProcessor extends Task<TestCaseSet> {
 }

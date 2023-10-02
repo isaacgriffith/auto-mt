@@ -26,6 +26,12 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Coverage strategy for the Multiple Base Choice coverage strategy.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class MultipleBaseChoiceCoverage extends ISPCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

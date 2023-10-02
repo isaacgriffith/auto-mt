@@ -27,6 +27,13 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 import dev.siliconcode.auto_mt.app.testreq.TestRequirementSet
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Coverage generation strategy which generates test requirements for the
+ * Each Choice coverage strategy.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class EachChoiceCoverage extends ISPCoverageGenerationStrategy {
 
     /** {@inheritDoc} */
@@ -34,17 +41,17 @@ class EachChoiceCoverage extends ISPCoverageGenerationStrategy {
     def generateTestRequirements(List<Characteristic> characteristics) {
         println('- Generating Test Requirements')
 
-        var trs = new TestRequirementSet()
-        var allBlocksSelected = false
+        def trs = new TestRequirementSet()
+        def allBlocksSelected = false
 
         while (!allBlocksSelected) {
-            var combo = []
+            def combo = []
             for (c in characteristics) {
                 combo += c.selectBlock()
             }
             trs.requirements += combo
 
-            var rem = characteristics.count {it -> !it.allSelected() }
+            def rem = characteristics.count {it -> !it.allSelected() }
             if (rem == 0)
                 allBlocksSelected = true
         }

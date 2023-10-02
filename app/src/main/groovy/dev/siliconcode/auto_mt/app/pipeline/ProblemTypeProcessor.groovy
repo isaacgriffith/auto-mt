@@ -24,5 +24,6 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class ProblemTypeProcessor extends Task {
+abstract class ProblemTypeProcessor extends Task<StringOutput> {
+
 }

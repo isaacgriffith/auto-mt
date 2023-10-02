@@ -24,7 +24,11 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class GraphAnalyzer extends Task {
+import dev.siliconcode.auto_mt.app.testreq.graph.coverage.CFG
 
+/**
+ * Abstract base class for all graph analyzers
+ */
+abstract class GraphAnalyzer extends Task<CFG> {
 
 }

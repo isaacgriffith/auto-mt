@@ -26,6 +26,13 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Implementation of the ISP Coverage Generation Strategy which generates test
+ * requirements based on the Pairwise Coverage strategy.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class TWiseCoverage extends ISPCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

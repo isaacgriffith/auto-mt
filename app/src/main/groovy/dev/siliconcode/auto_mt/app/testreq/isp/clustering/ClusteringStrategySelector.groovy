@@ -24,30 +24,42 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp.clustering
 
-import com.zavtech.morpheus.frame.DataFrameColumn
+import groovy.util.logging.Slf4j
+import tech.tablesaw.api.NumberColumn
+import tech.tablesaw.columns.AbstractColumn
+import tech.tablesaw.columns.strings.AbstractStringColumn
 
 /**
  * Factory class used to select the appropriate clustering strategy for a vector
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
 @Singleton
+@Slf4j
 class ClusteringStrategySelector {
 
     /**
      * Factory method that actually performs the strategy selection
      *
      * @param feature The feature vector for which the strategy will be selected
-     * @return a stgrategy for clustering
+     * @return a strategy for clustering
      * @throws RuntimeException if there is no known clustering strategy for the given feature vector
      */
-    ClusteringStrategy selectClusterMethod(DataFrameColumn feature) {
-        Class type = feature.typeInfo()
+    ClusteringStrategy selectClusterMethod(AbstractColumn feature) {
+        if (!feature) {
+            log.error("Feature vector cannot be null")
+            throw new RuntimeException("Feature vector cannot be null")
+        }
 
-        if (type.isInstance(Number.class)) {
-            return new NumericalClustering()
-        } else if (type.isInstance(String.class)) {
-            return new CategoricalClustering()
-        } else {
-            throw new RuntimeException("Current type: ${type.getSimpleName()} not yet supported")
+        switch(feature) {
+            case { it instanceof AbstractStringColumn }:
+                return new CategoricalClustering()
+            case { it instanceof NumberColumn }:
+                return new NumericalClustering()
+            default:
+                log.error("Current type: ${feature.getClass().getSimpleName()} not yet supported")
+                throw new RuntimeException("Current type: ${feature.getClass().getSimpleName()} not yet supported")
         }
     }
 }

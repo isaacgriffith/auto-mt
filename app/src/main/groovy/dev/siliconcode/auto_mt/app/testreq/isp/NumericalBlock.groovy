@@ -26,13 +26,25 @@ package dev.siliconcode.auto_mt.app.testreq.isp
 
 /**
  * A block partitioning a domain of numerical data
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
 class NumericalBlock extends Block {
 
+    /** Random number generator */
     private final Random rand = new Random()
-    final var min = Double.NEGATIVE_INFINITY
-    final var max = Double.POSITIVE_INFINITY
+    /** Minimum value of this block */
+    def min = Double.NEGATIVE_INFINITY
+    /** Maximum value of this block */
+    def max = Double.POSITIVE_INFINITY
 
+    /**
+     * Constructs a new NumericalBlock with the given name and default min and
+     * max values of Double.NEGATIVE_INFINITY and Double.POSITIVE_INFINITY
+     *
+     * @param name Name of this block
+     */
     NumericalBlock(name, min = Double.NEGATIVE_INFINITY, max = Double.POSITIVE_INFINITY) {
         super(name)
         this.min = min
@@ -42,7 +54,7 @@ class NumericalBlock extends Block {
     /** {@inheritDoc} */
     @Override
     def generateRandomValue() {
-        return rand.nextDouble(min, max)
+        return min + Random.nextDouble() * (max - min)
     }
 
     /** {@inheritDoc} */

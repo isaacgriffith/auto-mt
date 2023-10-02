@@ -24,9 +24,15 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class Task {
+/**
+ * Pipeline for processing input data
+ */
+abstract class Task<T extends PipelineOutput> {
 
-    Task next
-
-    abstract def execute(input)
+    /**
+     * Executes the pipeline on the given input
+     *
+     * @param inputs Input to the pipeline
+     */
+    abstract def execute(T... inputs)
 }

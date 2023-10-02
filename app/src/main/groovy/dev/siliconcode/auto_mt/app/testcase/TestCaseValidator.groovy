@@ -30,7 +30,7 @@ class TestCaseValidator extends TestCaseProcessor {
 
     /** {@inheritDoc} */
     @Override
-    def execute(input) {
+    def execute(TestCaseSet... testCaseSets) {
         return null
     }
 }

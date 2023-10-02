@@ -24,7 +24,7 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class MultiSourceTextAnalyzer extends Task {
+abstract class MultiSourceTextAnalyzer extends Task<InputFile> {
 
         /**
         * Analyzes the text and returns a list of features
@@ -38,7 +38,7 @@ abstract class MultiSourceTextAnalyzer extends Task {
         * {@inheritDoc}
         */
         @Override
-        def execute(input) {
+        def execute(InputFile... input) {
 //            var text = this.getInput()
 //            var features = this.analyze(text)
 //            this.setOutput(features)

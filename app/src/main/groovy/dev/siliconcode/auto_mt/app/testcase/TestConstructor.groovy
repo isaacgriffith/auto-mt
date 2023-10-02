@@ -25,50 +25,75 @@
 package dev.siliconcode.auto_mt.app.testcase
 
 import dev.siliconcode.auto_mt.app.pipeline.TestCaseProcessor
+import groovy.util.logging.Slf4j
 
 import java.nio.file.Files
 import java.nio.file.Paths
 
+/**
+ * Test Case Constructor which constructs the actual test cases from the template
+ */
+@Slf4j
 class TestConstructor extends TestCaseProcessor {
 
-    def execute(testCases) {
-        println("Generating Test Code")
+    /** {@inheritDoc} */
+    @Override
+    def execute(TestCaseSet... testCaseSets) {
+        log.info("Generating Test Code")
 
-        var mrCode = generateMetamorphicRelationCode(testCases)
-        var irCode = generateInputRelationCode(testCases)
-        var tcCode = generateTestCaseCode(testCases)
+        def mrCode = [].toSet() as Set<String>
+        def irCode = [].toSet() as Set<String>
+        def tcCode = [].toSet() as Set<String>
 
-        produceTestCode(mrCode, irCode, tcCode)
+        testCaseSets.each { testCaseSet ->
+            mrCode += generateMetamorphicRelationCode(testCaseSet.cases)
+            irCode += generateInputRelationCode(testCaseSet.cases)
+            tcCode += generateTestCaseCode(testCaseSet.cases)
+        }
 
-        println("Test Code Generate")
+        generateTestCode(mrCode, irCode, tcCode)
+
+        log.info("Test Code Generate")
     }
 
+    /**
+     * Generates the code for the metamorphic relations
+     *
+     * @param testCases Set of test cases
+     * @return Set of metamorphic relation code
+     */
     def generateMetamorphicRelationCode(testCases) {
         println('- Generating MR Code')
 
-        var mrCodeImpls = [].toSet()
-        var template = TestConstructor.class.getResourceAsStream('/mr_template.txt').readLines().join('/n')
+        def mrCodeImpls = [].toSet()
+        def template = TestConstructor.class.getResourceAsStream('/mr_template.txt').readLines().join('/n')
 
         for (testCase in testCases) {
-            var metamorphicRelation = testCase.metamorphicRelation
-            var inst = template.replace('{name}', metamorphicRelation.outputRelation.name)
+            def metamorphicRelation = testCase.metamorphicRelation
+            def inst = template.replace('{name}', metamorphicRelation.outputRelation.name)
             inst = inst.replace('{operator}', metamorphicRelation.outputRelation.operator)
 
-            mrCodeImpls.append(inst)
+            mrCodeImpls += inst
         }
 
         return mrCodeImpls
     }
 
+    /**
+     * Generates the code for the input relations
+     *
+     * @param testCases Set of test cases
+     * @return Set of input relation code
+     */
     def generateInputRelationCode(testCases) {
-        println('- Generating IR Code')
+        log.info('- Generating IR Code')
 
-        var irCodeImpls = [].toSet()
-        var template = TestConstructor.class.getResourceAsStream('/ir_template.txt').readLines().join('/n')
+        def irCodeImpls = [].toSet()
+        def template = TestConstructor.class.getResourceAsStream('/ir_template.txt').readLines().join('/n')
 
         for (testCase in testCases) {
-            var metamorphicRelation = testCase.metamorphicRelation
-            var inst = template.replace('{name}', metamorphicRelation.inputRelation.name)
+            def metamorphicRelation = testCase.metamorphicRelation
+            def inst = template.replace('{name}', metamorphicRelation.inputRelation.name)
             inst = inst.replace('{operator}', metamorphicRelation.inputRelation.operator)
 
             irCodeImpls.add(inst)
@@ -77,16 +102,22 @@ class TestConstructor extends TestCaseProcessor {
         return irCodeImpls
     }
 
+    /**
+     * Generates the code for the test cases
+     *
+     * @param testCases Set of test cases
+     * @return Set of test case code
+     */
     def generateTestCaseCode(testCases) {
-        println('- Generating Test Case Code')
+        log.info('- Generating Test Case Code')
 
-        var tcCodeImpls = [].toSet()
-        var template = TestConstructor.class.getResourceAsStream('/tc_template.txt').readLines().join('/n')
+        def tcCodeImpls = [].toSet()
+        def template = TestConstructor.class.getResourceAsStream('/tc_template.txt').readLines().join('/n')
 
-        var count = 1
+        def count = 1
         for (testCase in testCases) {
-            var metamorphicRelation = testCase.metamorphicRelation
-            var inst = template.replace('{test_name}', "mr_${count}")
+            def metamorphicRelation = testCase.metamorphicRelation
+            def inst = template.replace('{test_name}', "mr_${count}")
             inst = inst.replace('{inputs}', testCase.inputs)
             inst = inst.replace('{transform}', metamorphicRelation.inputRelation.name)
             inst = inst.replace('{relation}', metamorphicRelation.outputRelation.name)
@@ -100,12 +131,19 @@ class TestConstructor extends TestCaseProcessor {
         return tcCodeImpls
     }
 
-    void produceTestCode(mrCode, irCode, tcCode) {
-        println('- Generating final test code')
+    /**
+     * Produces the final test code
+     *
+     * @param mrCode Set of metamorphic relation code
+     * @param irCode Set of input relation code
+     * @param tcCode Set of test case code
+     */
+    void generateTestCode(mrCode, irCode, tcCode) {
+        log.info('- Generating final test code')
 
-        var template = TestConstructor.class.getResourceAsStream('/test_template.txt').readLines().join('/n')
+        def template = TestConstructor.class.getResourceAsStream('/test_template.txt').readLines().join('/n')
 
-        var testCode = template.replace('{metamorphic_relations}', mrCode.join('\n\n'))
+        def testCode = template.replace('{metamorphic_relations}', mrCode.join('\n\n'))
         testCode = testCode.replace('{input_transforms}', irCode.join('\n\n'))
         testCode = testCode.replace('{test_cases}', tcCode.join('\n\n'))
 
@@ -113,7 +151,7 @@ class TestConstructor extends TestCaseProcessor {
             // TODO make dir
         }
 
-        try (var pw = Paths.get('./test/dataprocess.py').newPrintWriter()) {
+        try (def pw = Paths.get('./test/dataprocess.py').newPrintWriter()) {
             pw.write(testCode)
         }
     }

@@ -24,22 +24,28 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp.clustering
 
-import com.zavtech.morpheus.frame.DataFrameColumn
 import dev.siliconcode.auto_mt.app.testreq.isp.CategoricalBlock
+import tech.tablesaw.api.StringColumn
+import tech.tablesaw.columns.AbstractColumn
 
 /**
  * Clustering Strategy for a vector of categorical data
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
-class CategoricalClustering extends ClusteringStrategy {
+class CategoricalClustering extends ClusteringStrategy<StringColumn> {
 
     /** {@inheritDoc} */
     @Override
-    def cluster(String name, DataFrameColumn feature) {
-        var uniqueVals = feature.distinct()
-        var blocks = []
+    def cluster(String name, StringColumn feature) {
+        def uniqueVals = feature.unique().asList()
+        def blocks = []
 
         for (item in uniqueVals) {
             blocks += new CategoricalBlock(name, item)
         }
+
+        return blocks
     }
 }

@@ -26,6 +26,13 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Coverage strategy which generates test requirements for all possible combinations of values
+ * for each characteristic.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class AllCombinationsCoverage extends ISPCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

@@ -25,51 +25,71 @@
 package dev.siliconcode.auto_mt.app.metamorphic
 
 import dev.siliconcode.auto_mt.app.pipeline.MetamorphicRelationGenerator
+import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput
 import dev.siliconcode.auto_mt.app.pipeline.TestRequirementProcessor
 import dev.siliconcode.auto_mt.app.testcase.TestCase
 import dev.siliconcode.auto_mt.app.testcase.TestCaseGenerator
 import dev.siliconcode.auto_mt.app.testcase.TestCaseSet
+import dev.siliconcode.auto_mt.app.testreq.TestRequirementSet
 import groovy.json.JsonSlurper
+import groovy.util.logging.Slf4j
 
+/**
+ * Generates a set of metamorphic relations for the given set of test requirements
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
+@Slf4j
 class DataMutationOperatorGenerator extends TestRequirementProcessor implements MetamorphicRelationGenerator, TestCaseGenerator {
 
     /** {@inheritDoc} */
     @Override
-    def execute(Object input) {
+    def execute(TestRequirementSet... testRequirementSets) {
         println('Generating Metamorphic Relations')
 
-        var ops = loadDNOperators()
-        var tcs = generateTestCases(ops, testRequirements)
+        def ops = loadDNOperators()
+        def testCases = [].toSet() as Set<TestCase>
+        for (testRequirement in testRequirementSets.requirements) {
+            testCases += generateTestCases(ops, testRequirement.blocks)
+        }
 
-        printf('MRs Generated')
+        log.info('MRs Generated')
 
-        return tcs
+        return testCases
     }
 
+    /**
+     * Loads the set of Data Mutation Operators from the JSON file
+     */
     def loadDNOperators() {
-        println('- Loading DN Operators')
+        log.info('- Loading DN Operators')
 
         var jsonSlurper = new JsonSlurper()
         jsonSlurper.parse(DataMutationOperatorGenerator.class.getResourceAsStream("/dn_operators.json"))
     }
 
-    def generateTestCases(ops, testRequirements) {
-        println('- Generating Test Cases')
+    /**
+     * Generates a set of test cases for the given set of metamorphic relations
+     *
+     * @param ops  Set of operators
+     * @param blocks Set of blocks
+     */
+    def generateTestCases(ops, blocks) {
+        log.info('- Generating Test Cases')
 
         var testCases = new TestCaseSet()
-        for (tr in testRequirements) {
+        for (block in blocks) {
             for (op in ops) {
                 var inputRelation = op.'input-relation'
                 var outputRelation = op.'output-relation'
-                var mr = new MetamorphicRelation(
-                        new Relation(inputRelation.name, inputRelation.operator),
-                        new Relation(outputRelation.name, outputRelation.operator)
+                var mr = new MetamorphicRelation(op.name,
+                        new Relation(name: inputRelation.name, operator: inputRelation.operator),
+                        new Relation(name: outputRelation.name, operator: outputRelation.operator)
                 )
 
                 var inputs = [:]
-                for (block in tr.blocks) {
-                    inputs[block.name] = block.generateRandomValue()
-                }
+                inputs[block.name] = block.generateRandomValue()
 
                 testCases.cases += new TestCase(mr, inputs)
             }

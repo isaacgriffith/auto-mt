@@ -26,6 +26,12 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Pairwise Coverage Strategy
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class PairWiseCoverage extends ISPCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

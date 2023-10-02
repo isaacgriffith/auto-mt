@@ -26,5 +26,11 @@ package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
 import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput
 
+/**
+ * Control Flow Graph
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class CFG implements PipelineOutput {
 }

@@ -24,5 +24,11 @@
  */
 package dev.siliconcode.auto_mt.app.metrics
 
+/**
+ * Representation of a finding of a source code metric
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class Finding {
 }

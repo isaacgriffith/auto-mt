@@ -26,6 +26,12 @@ package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
+/**
+ * Interface for all ISP Coverage Generation Strategies
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 abstract class ISPCoverageGenerationStrategy {
 
     abstract def generateTestRequirements(List<Characteristic> characteristics)

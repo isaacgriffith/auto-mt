@@ -24,69 +24,30 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp.clustering
 
-import com.zavtech.morpheus.frame.DataFrameColumn
+import dev.siliconcode.auto_mt.app.testreq.isp.Block
+import dev.siliconcode.auto_mt.app.testreq.isp.NumericalBlock
+import tech.tablesaw.api.DoubleColumn
 
-class NumericalClustering extends ClusteringStrategy {
+/**
+ * Clustering strategy for numerical data
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
+class NumericalClustering extends ClusteringStrategy<DoubleColumn> {
 
     /** {@inheritDoc} */
     @Override
-    def cluster(String name, DataFrameColumn feature) {
-        return null
-    }
+    def cluster(String name, DoubleColumn feature) {
+        Jenks jenks = new Jenks(feature)
+        Jenks.Breaks breaks = jenks.computeBreaks()
 
-    def bestNaturalBreaks(data, maxClasses, minGvf) {
-        data = sortData(data)
-
-        var uniq = countUniqueValues(data)
-        if (maxClasses > uniq) {
-            maxClasses = uniq
+        def blocks = []
+        breaks.numClassses().times {
+            Block block = new NumericalBlock(name, breaks.getClassMin(it), breaks.getClassMax(it))
+            blocks.add(block)
         }
 
-        var lowerClassLimit, _ = getMatrices(data, maxClasses)
-        var bestGvf
-        var bestClass = 1
-
-        for (int nClasses = 2; nClasses <= maxClasses; nClasses++) {
-            var gvf = goodnessOfVarianceFit(data, lowerClassLimit, maxClasses, nClasses, uniq)
-
-            if (gvf > bestGvf) {
-                bestGvf = gvf
-                bestClass = nClasses
-            }
-
-            if (gvf >= minGvf)
-                break
-        }
-
-        return breaks(data, lowerClassLimit, maxClasses, bestClass, uniq)
-    }
-
-    def naturalBreaks(data, nClasses) {
-        data = sortData(data)
-
-        var uniq = countUniqueValues(data)
-        if (nClasses >= uniq) {
-            return deduplicate(data)
-        }
-
-        var lowerClassLimits, _ = getMatrices(data, nClasses)
-
-        return breaks(data, lowerClassLimits, nClasses, nClasses, uniq)
-    }
-
-    def allNaturalBreaks(data, maxClasses) {
-        data = sortData(data)
-
-        var uniq = countUniqueValues(data)
-        if (maxClasses > uniq) {
-            maxClasses = uniq
-        }
-
-        var lowerClassLimits, _ = getMatgrices(data, maxClasses)
-
-        allBreaks = []
-        for (nClasses = 2; nClasses <= maxClasses; nClasses++) {
-            allBreaks += breaks(data, lowerClassLimits, maxClasses, nClasses, uniq)
-        }
+        return blocks
     }
 }

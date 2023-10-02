@@ -71,6 +71,7 @@ class GenerateCommand implements Runnable {
     )
     String outputSpecPath
 
+    /** {@inheritDoc} */
     @Override
     void run() {
         var pipeline = PipelineBuilder.instance.buildGenerationPipeline()

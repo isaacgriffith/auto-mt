@@ -24,6 +24,9 @@
  */
 package dev.siliconcode.auto_mt.app.testreq
 
+/**
+ * Interface for classes which generate test requirements for a given metamorphic relation.
+ */
 interface TestRequirementGenerator {
 
 }

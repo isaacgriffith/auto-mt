@@ -24,13 +24,31 @@
  */
 package dev.siliconcode.auto_mt.app.metamorphic
 
+import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 /**
  * Abstract representation of metamorphic relations
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
-@ToString
+@ToString(includeNames = false, includeFields = true, excludes = ["id"])
+@EqualsAndHashCode
 abstract class AbstractMetamorphicRelation {
 
+    /** Unique identifier */
+    private UUID id
+    /** Name of the metamorphic relation */
     String name
+
+    /**
+     * Constructs a new AbstractMetamorphicRelation with the given name
+     *
+     * @param name Name of this metamorphic relation
+     */
+    AbstractMetamorphicRelation(name) {
+        this.name = name
+        this.id = UUID.randomUUID()
+    }
 }

@@ -24,6 +24,12 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Complete Path Coverage Strategy
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class CompletePathCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */

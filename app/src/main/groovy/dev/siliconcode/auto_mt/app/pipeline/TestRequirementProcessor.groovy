@@ -24,5 +24,7 @@
  */
 package dev.siliconcode.auto_mt.app.pipeline
 
-abstract class TestRequirementProcessor extends Task {
+import dev.siliconcode.auto_mt.app.testreq.TestRequirementSet
+
+abstract class TestRequirementProcessor extends Task<TestRequirementSet> {
 }

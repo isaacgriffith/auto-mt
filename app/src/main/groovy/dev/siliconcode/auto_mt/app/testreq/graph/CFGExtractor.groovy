@@ -25,12 +25,19 @@
 package dev.siliconcode.auto_mt.app.testreq.graph
 
 import dev.siliconcode.auto_mt.app.pipeline.CodeAnalyzer
+import dev.siliconcode.auto_mt.app.pipeline.CodeFile
 
+/**
+ * Code Analyzer which extracts the Control Flow Graph from a given CodeFile.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class CFGExtractor extends CodeAnalyzer {
 
     /** {@inheritDoc} */
     @Override
-    def execute(Object input) {
+    def execute(CodeFile... input) {
         return null
     }
 }

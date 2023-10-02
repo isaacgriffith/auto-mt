@@ -24,12 +24,28 @@
  */
 package dev.siliconcode.auto_mt.app.metamorphic
 
+/**
+ * Representation of a Relation which either transforms input data or compares output results
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class MetamorphicRelation extends AbstractMetamorphicRelation {
 
+    /** The input transformation relation */
     Relation inputRelation
+    /** The output comparison relation */
     Relation outputRelation
 
-    MetamorphicRelation(ir, or) {
+    /**
+     * Constructs a new MetamorphicRelation with the given name and relations
+     *
+     * @param name       Name of this metamorphic relation
+     * @param ir         Input relation
+     * @param or         Output relation
+     */
+    MetamorphicRelation(String name,ir, or) {
+        super(name)
         this.inputRelation = ir
         this.outputRelation = or
     }

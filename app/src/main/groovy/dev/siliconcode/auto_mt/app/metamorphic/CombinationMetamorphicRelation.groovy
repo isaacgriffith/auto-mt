@@ -24,5 +24,30 @@
  */
 package dev.siliconcode.auto_mt.app.metamorphic
 
+/**
+ * A metamorphic relation which is a combination of other metamorphic relations
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class CombinationMetamorphicRelation extends AbstractMetamorphicRelation {
+
+    /** Combined metamorphic relations */
+    def relations = []
+    /** Operator used to combine the metamorphic relations */
+    def combiningOperator
+
+    /**
+     * Constructs a new CombinedMetamorphicRelation with the given name and
+     * metamorphic relations
+     *
+     * @param name       Name of this metamorphic relation
+     * @param relations  Metamorphic relations to combine
+     * @param operator   Operator used to combine the metamorphic relations
+     */
+    CombinationMetamorphicRelation(name, relations, operator) {
+        super(name)
+        this.relations = relations
+        this.combiningOperator = operator
+    }
 }

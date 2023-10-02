@@ -26,6 +26,7 @@ package dev.siliconcode.auto_mt.app.testreq.isp
 
 import com.zavtech.morpheus.frame.DataFrame
 import dev.siliconcode.auto_mt.app.pipeline.DataAnalyzer
+import dev.siliconcode.auto_mt.app.pipeline.InputFile
 import dev.siliconcode.auto_mt.app.testreq.isp.clustering.ClusteringStrategySelector
 import dev.siliconcode.auto_mt.app.testreq.isp.coverage.EachChoiceCoverage
 
@@ -37,15 +38,17 @@ import java.nio.file.Paths
  * A Pipeline Task used to extract the partitions of the input space in order to generate Test Requirements
  * from which a set of Metamorphic Relations can be extracted
  *
- * @author Isaac D Griffith, Ph.D.
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
  */
 class InputSpacePartitioner extends DataAnalyzer implements TestRequirementGenerator {
 
-    var trGenerator = new EachChoiceCoverage()
+    /** The test requirement generator to use */
+    def trGenerator = new EachChoiceCoverage()
 
     /** {@inheritDoc} */
     @Override
-    def execute(testDataPath) {
+    def execute(InputFile... testDataPath) {
         println('Partitioning the input space')
 
         var dataset = loadTestData(testDataPath)

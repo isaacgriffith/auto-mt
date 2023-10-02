@@ -24,12 +24,33 @@
  */
 package dev.siliconcode.auto_mt.app.testcase
 
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
+import groovy.transform.builder.Builder
+
+/**
+ * A single test case
+ */
+@ToString(includeNames = false, includeFields = false)
+@EqualsAndHashCode(includes = ["id"])
+@Builder(excludes = ["id"])
 class TestCase {
 
-    var metamorphicRelation
-    var inputs
+    /** Unique identifier for this test case */
+    UUID id
+    /** Metamorphic Relation this test case is associated with */
+    def metamorphicRelation
+    /** Inputs to the metamorphic relation */
+    def inputs
 
+    /**
+     * Constructs a new TestCase
+     *
+     * @param mr     Metamorphic Relation
+     * @param inputs Inputs to the metamorphic relation
+     */
     TestCase(mr, inputs) {
+        id = UUID.randomUUID()
         this.metamorphicRelation = mr
         this.inputs = inputs
     }

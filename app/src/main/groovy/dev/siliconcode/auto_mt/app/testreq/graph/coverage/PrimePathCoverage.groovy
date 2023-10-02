@@ -24,6 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.graph.coverage
 
+/**
+ * Prime Path Coverage is a test generation strategy that generates tests
+ * for each prime path in the control flow graph.
+ *
+ * @author Isaac D. Griffith, Ph.D.
+ * @version 1.0.0
+ */
 class PrimePathCoverage extends GraphCoverageGenerationStrategy {
 
     /** {@inheritDoc} */
