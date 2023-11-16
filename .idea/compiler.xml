@@ -11,6 +11,6 @@
         <module name="auto-mt.app.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="15" />
+    <bytecodeTargetLevel target="19" />
   </component>
 </project>

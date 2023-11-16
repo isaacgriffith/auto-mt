@@ -52,12 +52,14 @@ class CategoricalBlock extends Block {
     /** {@inheritDoc} */
     @Override
     def generateRandomValue() {
-        return null
+        this.selected = true
+        return value
     }
 
     /** {@inheritDoc} */
     @Override
     def generateBoundaryValue() {
-        return null
+        this.selected = true
+        return value
     }
 }

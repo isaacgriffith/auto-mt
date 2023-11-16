@@ -19,4 +19,27 @@ plugins {
 }
 
 rootProject.name = 'auto-mt'
-include('app', 'lib', 'utilities')
+include(
+        'app',
+        'library',
+        'utilities',
+        'parsers',
+        'experiments',
+        'parsers:c',
+        'parsers:csharp',
+        'parsers:dart',
+        'parsers:go',
+        'parsers:java',
+        'parsers:js',
+        'parsers:kotlin',
+        'parsers:objc',
+        'parsers:php',
+        'parsers:python',
+        'parsers:r',
+        'parsers:ruby',
+        'parsers:rust',
+        'parsers:scala',
+        'parsers:swift',
+        'parsers:ts'
+)
+

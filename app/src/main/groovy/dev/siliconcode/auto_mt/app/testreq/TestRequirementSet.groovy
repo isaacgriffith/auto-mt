@@ -24,11 +24,13 @@
  */
 package dev.siliconcode.auto_mt.app.testreq
 
-import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput;
+import dev.siliconcode.auto_mt.app.pipeline.PipelineOutput
+import groovy.transform.ToString;
 
 /**
  * Set of Test Requirements
  */
+@ToString(includeNames = false, includePackage = false, includeSuper = false)
 class TestRequirementSet implements PipelineOutput {
 
     /**

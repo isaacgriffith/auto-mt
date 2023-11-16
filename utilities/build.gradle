@@ -9,5 +9,7 @@ plugins {
 }
 
 dependencies {
-    api project(':lib')
+    //api project(':lib')
+
+
 }

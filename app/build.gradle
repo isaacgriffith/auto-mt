@@ -24,6 +24,9 @@ dependencies {
 
     // JGraphT
     implementation 'org.jgrapht:jgrapht-core:1.5.2'
+
+    // Spark
+    implementation 'org.apache.spark:spark-core_2.12:3.5.0'
 }
 
 application {

@@ -24,7 +24,9 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp.coverage
 
+import dev.siliconcode.auto_mt.app.testreq.TestRequirement
 import dev.siliconcode.auto_mt.app.testreq.TestRequirementSet
+import dev.siliconcode.auto_mt.app.testreq.isp.Block
 import dev.siliconcode.auto_mt.app.testreq.isp.Characteristic
 
 /**
@@ -41,21 +43,25 @@ class EachChoiceCoverage extends ISPCoverageGenerationStrategy {
     def generateTestRequirements(List<Characteristic> characteristics) {
         println('- Generating Test Requirements')
 
-        def trs = new TestRequirementSet()
-        def allBlocksSelected = false
+        TestRequirementSet trs = new TestRequirementSet()
+        boolean allBlocksSelected = false
 
         while (!allBlocksSelected) {
             def combo = []
-            for (c in characteristics) {
-                combo += c.selectBlock()
+            for (Characteristic c : characteristics) {
+                Block block = c.selectBlock()
+                combo += block
             }
-            trs.requirements += combo
+
+            trs.requirements += new TestRequirement(blocks: combo)
 
             def rem = characteristics.count {it -> !it.allSelected() }
-            if (rem == 0)
+            if (rem == 0) {
                 allBlocksSelected = true
+            }
         }
 
+        println(trs)
         return trs
     }
 }

@@ -1,0 +1,36 @@
+plugins {
+    id 'dev.siliconcode.auto_mt.groovy-application-conventions'
+}
+
+group = 'dev.siliconcode.auto_mt'
+version = '1.0.0'
+
+sourceCompatibility = '19'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':library')
+
+    // Google Guava
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation 'com.google.guava:guava:32.1.3-jre'
+
+    implementation 'org.apache.commons:commons-csv:1.10.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+    // Tablesaw for Dataframes
+    implementation 'tech.tablesaw:tablesaw-core:0.43.1'
+
+    implementation 'com.zavtech:morpheus-core:0.9.23'
+
+    // JGraphT
+    implementation 'org.jgrapht:jgrapht-core:1.5.2'
+
+    // Spark
+    implementation 'org.apache.spark:spark-core_2.13:3.5.0'
+    compileOnly 'org.apache.spark:spark-mllib_2.13:3.5.0'
+    compileOnly 'org.apache.spark:spark-sql_2.13:3.5.0'
+}

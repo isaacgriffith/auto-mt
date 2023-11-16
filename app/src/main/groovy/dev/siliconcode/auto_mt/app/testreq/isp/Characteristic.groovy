@@ -24,6 +24,9 @@
  */
 package dev.siliconcode.auto_mt.app.testreq.isp
 
+import groovy.transform.EqualsAndHashCode
+import groovy.transform.ToString
+
 /**
  * A characteristic is a set of blocks which are associated with a single input parameter of the metamorphic relation
  * under test.
@@ -31,6 +34,8 @@ package dev.siliconcode.auto_mt.app.testreq.isp
  * @author Isaac D. Griffith, Ph.D.
  * @version 1.0.0
  */
+@EqualsAndHashCode(includes = ["name"])
+@ToString(includes = ["name"], includeNames = false, includePackage = false)
 class Characteristic {
 
     /** The name of the characteristic */
@@ -56,9 +61,12 @@ class Characteristic {
      * @return a block of this characteristic
      */
     def selectBlock() {
-        if (allSelected()) {
+        if (!allSelected()) {
             Random rand = new Random()
-            return blocks[rand.nextInt(blocks.size())]
+            def unselected = blocks.findAll { it.selected == false }.toList()
+            Block block = unselected[rand.nextInt(unselected.size())]
+            block.selected = true
+            return block
         } else {
             return blocks.find { !it.selected }
         }

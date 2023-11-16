@@ -1,0 +1,236 @@
+#
+# MIT License
+#
+# SiliconCode AutoMT - Library
+# Copyright (c) 2023 SiliconCode, LLC and Isaac Griffith, PhD
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+language: c
+sourceFileExtensions:
+  - c
+  - h
+binaryFileExtensions:
+  - dll
+  - exe
+buildFileTypes: []
+buildFileExtensions:
+  - makefile
+  - Makefile
+  - CMakeLists.txt
+moduleFileTypes: []
+moduleFileExtensions: []
+documentationFileTypes: []
+---
+language: 'C#'
+sourceFileExtensions:
+  - cs
+binaryFileExtensions:
+  - dll
+  - exe
+moduleFileTypes: []
+moduleFileExtensions:
+  - csproj
+buildFileTypes: []
+buildFileExtensions:
+  - csproj
+  - sln
+documentationFileTypes: []
+---
+language: dart
+sourceFileExtensions: []
+binaryFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+documentationFileTypes: []
+---
+language: go
+sourceFileExtensions:
+  - go
+binaryFileExtensions:
+  - exe
+  - dll
+moduleFileTypes:
+  - go.mod
+moduleFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: java
+sourceFileExtensions:
+  - java
+binaryFileExtensions:
+  - class
+moduleFileTypes:
+  - module-info.java
+moduleFileExtensions:
+  - jar
+  - war
+  - ear
+buildFileTypes:
+  - pom.xml
+  - build.xml
+buildFileExtensions:
+  - gradle
+documentationFileTypes:
+  - package-info.java
+---
+language: javascript
+sourceFileExtensions:
+  - js
+  - jsx
+binaryFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+buildFileTypes:
+  - package.json
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: kotlin
+sourceFileExtensions: []
+binaryFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+documentationFileTypes: []
+---
+language: objective-c
+sourceFileExtensions:
+  - m
+  - mm
+binaryFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+documentationFileTypes: []
+---
+language: php
+sourceFileExtensions:
+  - php
+binaryFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+buildFileTypes:
+  - composer.json
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: python
+sourceFileExtensions:
+  - py
+binaryFileExtensions:
+  - pyc
+moduleFileTypes:
+  - __init__.py
+moduleFileExtensions: []
+buildFileTypes:
+  - setup.py
+  - conda.yml
+  - conda.yaml
+  - requirements.txt
+  - project.toml
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: r
+sourceFileExtensions:
+  - r
+binaryFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+documentationFileTypes: []
+---
+language: ruby
+sourceFileExtensions:
+  - rb
+binaryFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+buildFileTypes:
+  - Gemfile
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: rust
+sourceFileExtensions:
+  - rs
+binaryFileExtensions:
+  - dll
+  - exe
+moduleFileTypes:
+  - Cargo.toml
+moduleFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: scala
+sourceFileExtensions:
+  - scala
+binaryFileExtensions:
+  - class
+moduleFileTypes:
+  - build.sbt
+moduleFileExtensions:
+  - jar
+  - war
+  - ear
+buildFileTypes:
+  - pom.xml
+  - build.xml
+buildFileExtensions:
+  - gradle
+documentationFileTypes:
+  - package-info.java
+---
+language: swift
+sourceFileExtensions:
+  - swift
+binaryFileExtensions:
+  - dylib
+  - framework
+  - app
+  - xcframework
+moduleFileTypes:
+  - Package.swift
+moduleFileExtensions: []
+buildFileTypes: []
+buildFileExtensions: []
+documentationFileTypes: []
+---
+language: typescript
+sourceFileExtensions:
+  - ts
+  - tsx
+binaryFileExtensions: []
+moduleFileTypes: []
+moduleFileExtensions: []
+buildFileTypes:
+  - package.json
+buildFileExtensions: []
+documentationFileTypes: []

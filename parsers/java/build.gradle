@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'antlr'
+}
+
+group = 'dev.siliconcode.auto_mt.parsers'
+version = '1.0.0'
+
+sourceCompatibility = '19'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.13.1"
+    implementation "org.antlr:antlr4:4.13.1"
+}
+
+generateGrammarSource {
+    arguments += ["-visitor", "-package", "dev.siliconcode.auto_mt.parsers.java"]
+
+    doLast {
+        println "Copying generate grammar lexer/parser files to main directory"
+
+        copy {
+            from "${buildDir}/generated-src/antlr/main"
+            into "${projectDir}/src/main/java/dev/siliconcode/auto_mt/parsers/java"
+        }
+        delete "${buildDir}/generated-src/antlr/"
+    }
+}

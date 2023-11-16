@@ -21,7 +21,25 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
-            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/experiments" />
+            <option value="$PROJECT_DIR$/library" />
+            <option value="$PROJECT_DIR$/parsers" />
+            <option value="$PROJECT_DIR$/parsers/c" />
+            <option value="$PROJECT_DIR$/parsers/csharp" />
+            <option value="$PROJECT_DIR$/parsers/dart" />
+            <option value="$PROJECT_DIR$/parsers/go" />
+            <option value="$PROJECT_DIR$/parsers/java" />
+            <option value="$PROJECT_DIR$/parsers/js" />
+            <option value="$PROJECT_DIR$/parsers/kotlin" />
+            <option value="$PROJECT_DIR$/parsers/objc" />
+            <option value="$PROJECT_DIR$/parsers/php" />
+            <option value="$PROJECT_DIR$/parsers/python" />
+            <option value="$PROJECT_DIR$/parsers/r" />
+            <option value="$PROJECT_DIR$/parsers/ruby" />
+            <option value="$PROJECT_DIR$/parsers/rust" />
+            <option value="$PROJECT_DIR$/parsers/scala" />
+            <option value="$PROJECT_DIR$/parsers/swift" />
+            <option value="$PROJECT_DIR$/parsers/ts" />
             <option value="$PROJECT_DIR$/utilities" />
           </set>
         </option>

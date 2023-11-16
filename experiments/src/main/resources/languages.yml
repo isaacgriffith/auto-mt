@@ -1,0 +1,49 @@
+---
+name: C
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.c.CDirector
+---
+name: CSharp
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.csharp.CSharpDirector
+---
+name: Dart
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.dart.DartDirector
+---
+name: Go
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.go.GoDirector
+---
+name: Java
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.java.JavaDirector
+---
+name: JavaScript
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.js.JavaScriptDirector
+---
+name: Kotlin
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.kotlin.KotlinDirector
+---
+name: Objective-C
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.objc.ObjCDirector
+---
+name: PHP
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.php.PHPDirector
+---
+name: Python
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.python.PythonDirector
+---
+name: R
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.r.RDirector
+---
+name: Ruby
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.rubyh.RubyDirector
+---
+name: Rust
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.rust.RustDirector
+---
+name: Scala
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.scala.ScalaDirector
+---
+name: Swift
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.swift.SwiftDirector
+---
+name: TypeScript
+directorClassName: dev.siliconcode.auto_mt.lib.parserop.ts.TypeScriptDirector
+---

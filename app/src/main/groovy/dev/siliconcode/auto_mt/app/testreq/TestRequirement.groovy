@@ -25,7 +25,11 @@
 package dev.siliconcode.auto_mt.app.testreq
 
 import dev.siliconcode.auto_mt.app.testreq.isp.Block
+import groovy.transform.MapConstructor
+import groovy.transform.ToString
 
+@ToString(includeNames = false, includePackage = false)
+@MapConstructor
 class TestRequirement {
 
     List<Block> blocks = []
